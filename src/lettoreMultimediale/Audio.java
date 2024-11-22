@@ -10,19 +10,27 @@ public class Audio extends ElementoMultimediale implements Play{
         this.volume = volume;
     }
 
-    public void alzaVolume() {
+    public  void alzaVolume() {
         volume++;
     }
-    public void abbassaVolume() {
+
+    public  void abbassaVolume() {
         if (volume>0)
             volume--;
 
     }
 
     @Override
-    public void esegui() {
-    play();
+    public void setVolume(int nuovoVolume) {
+        this.volume = nuovoVolume;
+        System.out.println("Il volume è stato impostato a: "  + nuovoVolume);
     }
+
+    @Override
+    public void esegui() {
+        play();
+    }
+
 
     @Override
     public String toString() {

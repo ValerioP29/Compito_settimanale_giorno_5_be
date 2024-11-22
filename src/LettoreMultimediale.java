@@ -59,15 +59,44 @@ public class LettoreMultimediale {
             }
 
             if (scelta >= 1 && scelta <= 5) {
+                ElementoMultimediale elemento = elementi[scelta - 1];
                 System.out.println("\nInformazioni sull'elemento:");
-                System.out.println(elementi[scelta - 1]);
+                System.out.println(elemento);
                 System.out.println("\nEsecuzione dell'elemento:");
-                elementi[scelta - 1].esegui();
-            } else {
-                System.out.println("Scelta non valida! Riprova.");
+                elemento.esegui();
+
+
+                while (true) {
+
+                    System.out.println("\nCosa vuoi fare?");
+                    System.out.println("1: Modifica Volume");
+                    System.out.println("2: Modifica Luminosità");
+                    System.out.println("3: Esegui l'elemento");
+                    System.out.println("0: Torna alla selezione degli elementi");
+
+                    int azione = scanner.nextInt();
+
+                    if (azione == 0) {
+                        break;
+                    } else if (azione == 1) {
+                        System.out.println("Inserisci il nuovo valore del volume:");
+                        int nuovoVolume = scanner.nextInt();
+                        elemento.setVolume(nuovoVolume);
+                        System.out.println("\nInformazioni aggiornate sull'elemento:");
+                        System.out.println(elemento);
+                    } else if (azione == 2) {
+                        System.out.println("Inserisci il nuovo valore della luminosità:");
+                        int nuovaLuminosita = scanner.nextInt();
+                        elemento.setLuminosita(nuovaLuminosita);
+                        System.out.println("\nInformazioni aggiornate sull'elemento:");
+                        System.out.println(elemento);
+                    } else if (azione == 3) {
+                        elemento.esegui();
+
+                    }
+                }
             }
         }
-
         scanner.close();
     }
 }

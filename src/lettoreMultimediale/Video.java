@@ -21,6 +21,7 @@ public class Video extends ElementoMultimediale implements Play {
 
     }
 
+
     public void alzaLuminosita() {
         luminosita++;
     }
@@ -29,14 +30,23 @@ public class Video extends ElementoMultimediale implements Play {
             luminosita-- ;
 
     }
-
-
+    @Override
+    public void setVolume(int nuovoVolume) {
+        this.volume = nuovoVolume;
+        System.out.println("Volume impostato a: " + nuovoVolume);
+    }
+    @Override
+    public void setLuminosita(int nuovaLuminosita) {
+        this.luminosita = nuovaLuminosita;
+        System.out.println("Nuova luminosità impostata a: " + nuovaLuminosita);
+    }
 
     @Override
     public void play() {
-        while (durata > 0) {
+        int durataRimanente= durata;
+        while (durataRimanente > 0) {
             System.out.println(titolo + " " + "!".repeat(volume) + "*".repeat(luminosita));
-            durata--;
+            durataRimanente--;
         }
         System.out.println("Riproduzione completata.");
     }

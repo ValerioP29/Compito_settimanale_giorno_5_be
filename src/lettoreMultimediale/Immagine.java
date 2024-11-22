@@ -11,11 +11,19 @@ public class Immagine extends ElementoMultimediale{
     public void aumentaLuminosita() {
         luminosita++;
     }
+
     public void diminuisciLuminosita() {
         if (luminosita >0)
             luminosita--;
 
     }
+
+    @Override
+    public void setLuminosita(int nuovaLuminosita) {
+        this.luminosita = nuovaLuminosita;
+        System.out.println("Nuova luminosità impostata: " + nuovaLuminosita);
+    }
+
     public void show() {
         System.out.println(titolo + " " + "*".repeat(luminosita));
     }
